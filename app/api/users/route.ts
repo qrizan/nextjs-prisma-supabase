@@ -1,7 +1,7 @@
 import prisma from "@/prisma/db";
 import { userSchema } from "@/schemas/users";
 import { NextRequest, NextResponse } from "next/server";
-import bcrypt from "bcryptjs"
+import { hash } from 'bcrypt';
 import options from "../auth/[...nextauth]/options";
 import { getServerSession } from "next-auth";
 
@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ message: "Duplicate Email" }, { status: 409 })
   }
 
-  const hashPasword = await bcrypt.hash(body.password, 10)
+  const hashPasword = await hash(body.password, 10)
 
   body.password = hashPasword
 

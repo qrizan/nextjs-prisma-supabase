@@ -1,7 +1,7 @@
 import prisma from "@/prisma/db";
 import { userSchema } from "@/schemas/users";
 import { NextRequest, NextResponse } from "next/server";
-import bcrypt from 'bcryptjs'
+import { hash } from 'bcrypt';
 import options from "../../auth/[...nextauth]/options";
 import { getServerSession } from "next-auth";
 
@@ -38,7 +38,7 @@ export async function PATCH(request: NextRequest, { params }: Props) {
   }
 
   if (body?.password && body.password != "") {
-    const hashPassword = await bcrypt.hash(body.password, 10)
+    const hashPassword = await hash(body.password, 10)
     body.password = hashPassword
   } else {
     delete body.password

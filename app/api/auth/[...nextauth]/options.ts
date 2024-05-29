@@ -1,7 +1,7 @@
 import prisma from "@/prisma/db"
 import { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
-import bcrypt from "bcryptjs"
+import { compare } from 'bcrypt';
 
 const options: NextAuthOptions = {
   providers: [
@@ -29,7 +29,7 @@ const options: NextAuthOptions = {
           return null
         }
 
-        const match = await bcrypt.compare(credentials!.password, user.password)
+        const match = await compare(credentials!.password, user.password)
 
         if (match) {
           return user
