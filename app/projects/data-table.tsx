@@ -1,12 +1,20 @@
 "use client";
 
-import { Project } from '@prisma/client'
 import React from 'react'
 import { Table, Tooltip } from "flowbite-react";
 import StatusBadge from '../components/StatusBadge';
 import PriorityLevel from '../components/PriorityLevel';
 import Link from 'next/link';
 import { HiArrowRight } from "react-icons/hi";
+
+import { Project as PrismaProject, Category as PrismaCategory } from '@prisma/client';
+
+interface Category extends PrismaCategory { }
+
+interface Project extends PrismaProject {
+  category: Category;
+}
+
 
 interface Props {
   projects: Project[]
