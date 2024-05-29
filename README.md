@@ -55,6 +55,10 @@ NEXTAUTH_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 #### database migration
 
 ```
+bunx prisma generate
+```
+
+```
 bunx prisma migrate dev --name init
 ```
 
@@ -75,3 +79,7 @@ bun --watch run dev
 ![projects-list](screenshots/projects-list.png)
 
 ![project-detail](screenshots/project-detail.png)
+
+### demo
+
+https://nextjs-prisma-supabase-lake.vercel.app/
