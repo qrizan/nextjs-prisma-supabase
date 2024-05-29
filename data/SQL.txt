@@ -1,0 +1,69 @@
+-- Insert Categories and capture their IDs
+WITH dev_cat AS (
+    INSERT INTO "Category" ("name")
+    VALUES ('Development')
+    RETURNING "id"
+),
+marketing_cat AS (
+    INSERT INTO "Category" ("name")
+    VALUES ('Marketing')
+    RETURNING "id"
+),
+hr_cat AS (
+    INSERT INTO "Category" ("name")
+    VALUES ('Human Resources')
+    RETURNING "id"
+),
+sales_cat AS (
+    INSERT INTO "Category" ("name")
+    VALUES ('Sales')
+    RETURNING "id"
+),
+it_cat AS (
+    INSERT INTO "Category" ("name")
+    VALUES ('IT')
+    RETURNING "id"
+)
+
+-- Insert Projects using the captured IDs
+INSERT INTO "Project" ("title", "description", "status", "priority", "categoryId", "createdAt", "updatedAt")
+VALUES
+-- Development Projects
+('Build New Website', 'Create a new corporate website', 'OPEN', 'HIGH', (SELECT "id" FROM dev_cat), NOW(), NOW()),
+('Mobile App Development', 'Develop a mobile application for the company', 'STARTED', 'MEDIUM', (SELECT "id" FROM dev_cat), NOW(), NOW()),
+('API Integration', 'Integrate third-party APIs into our platform', 'OPEN', 'HIGH', (SELECT "id" FROM dev_cat), NOW(), NOW()),
+('Database Optimization', 'Optimize database queries and indexing', 'CLOSED', 'LOW', (SELECT "id" FROM dev_cat), NOW(), NOW()),
+('Feature Enhancement', 'Add new features to the existing software', 'STARTED', 'MEDIUM', (SELECT "id" FROM dev_cat), NOW(), NOW()),
+('Bug Fixing', 'Fix bugs reported by users', 'STARTED', 'HIGH', (SELECT "id" FROM dev_cat), NOW(), NOW()),
+
+-- Marketing Projects
+('Launch Marketing Campaign', 'Launch a new marketing campaign for our product', 'OPEN', 'HIGH', (SELECT "id" FROM marketing_cat), NOW(), NOW()),
+('SEO Optimization', 'Improve SEO for our website', 'CLOSED', 'LOW', (SELECT "id" FROM marketing_cat), NOW(), NOW()),
+('Content Creation', 'Create content for social media and blogs', 'STARTED', 'MEDIUM', (SELECT "id" FROM marketing_cat), NOW(), NOW()),
+('Email Newsletter', 'Design and send out monthly newsletters', 'STARTED', 'MEDIUM', (SELECT "id" FROM marketing_cat), NOW(), NOW()),
+('Market Research', 'Conduct research on market trends and competitors', 'OPEN', 'HIGH', (SELECT "id" FROM marketing_cat), NOW(), NOW()),
+('Branding Update', 'Update the company’s branding and design', 'OPEN', 'LOW', (SELECT "id" FROM marketing_cat), NOW(), NOW()),
+
+-- Human Resources Projects
+('Employee Onboarding', 'Onboard new employees for the upcoming quarter', 'OPEN', 'HIGH', (SELECT "id" FROM hr_cat), NOW(), NOW()),
+('Recruitment Drive', 'Plan and execute a recruitment drive for open positions', 'OPEN', 'MEDIUM', (SELECT "id" FROM hr_cat), NOW(), NOW()),
+('Employee Training', 'Organize training sessions for employees', 'OPEN', 'MEDIUM', (SELECT "id" FROM hr_cat), NOW(), NOW()),
+('Performance Reviews', 'Conduct annual performance reviews', 'STARTED', 'HIGH', (SELECT "id" FROM hr_cat), NOW(), NOW()),
+('Policy Update', 'Update company policies and handbooks', 'STARTED', 'LOW', (SELECT "id" FROM hr_cat), NOW(), NOW()),
+('Health and Safety Audit', 'Perform a health and safety audit of the workplace', 'CLOSED', 'MEDIUM', (SELECT "id" FROM hr_cat), NOW(), NOW()),
+
+-- Sales Projects
+('Sales Strategy Meeting', 'Organize a meeting to discuss the new sales strategy', 'OPEN', 'MEDIUM', (SELECT "id" FROM sales_cat), NOW(), NOW()),
+('Customer Feedback Analysis', 'Analyze customer feedback for the last quarter', 'CLOSED', 'LOW', (SELECT "id" FROM sales_cat), NOW(), NOW()),
+('Lead Generation', 'Generate leads for potential customers', 'STARTED', 'HIGH', (SELECT "id" FROM sales_cat), NOW(), NOW()),
+('Sales Training', 'Provide training for the sales team', 'STARTED', 'MEDIUM', (SELECT "id" FROM sales_cat), NOW(), NOW()),
+('Client Outreach', 'Reach out to potential and existing clients', 'OPEN', 'HIGH', (SELECT "id" FROM sales_cat), NOW(), NOW()),
+('Sales Report', 'Prepare monthly sales reports', 'OPEN', 'LOW', (SELECT "id" FROM sales_cat), NOW(), NOW()),
+
+-- IT Projects
+('Server Maintenance', 'Perform scheduled maintenance on the servers', 'STARTED', 'HIGH', (SELECT "id" FROM it_cat), NOW(), NOW()),
+('Network Upgrade', 'Upgrade the company’s network infrastructure', 'STARTED', 'HIGH', (SELECT "id" FROM it_cat), NOW(), NOW()),
+('Cybersecurity Assessment', 'Assess and improve cybersecurity measures', 'OPEN', 'MEDIUM', (SELECT "id" FROM it_cat), NOW(), NOW()),
+('Software Deployment', 'Deploy new software tools for the team', 'STARTED', 'MEDIUM', (SELECT "id" FROM it_cat), NOW(), NOW()),
+('Backup Implementation', 'Implement a new backup system', 'OPEN', 'HIGH', (SELECT "id" FROM it_cat), NOW(), NOW()),
+('Hardware Procurement', 'Procure new hardware for the office', 'CLOSED', 'LOW', (SELECT "id" FROM it_cat), NOW(), NOW());
