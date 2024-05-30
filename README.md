@@ -10,17 +10,24 @@
 | Supabase | https://supabase.com       |
 | etc      |                            |
 
+#### users diagram
+
+![users-diagram](screenshots/users-diagram.png)
+
 ## setup
 
 #### tested on
 
 ```
-rizan@linux ~/Projects/nextjs-prisma-supabase $ node -v
+rizan@linux ~/Projects/nextjs-prisma-supabase $ node --version
 v20.13.0
+rizan@linux ~/Projects/nextjs-prisma-supabase $
+```
+
+```
 rizan@linux ~/Projects/nextjs-prisma-supabase $ bun --version
 1.1.9
 rizan@linux ~/Projects/nextjs-prisma-supabase $
-
 ```
 
 #### install dependencies

@@ -26,7 +26,7 @@ const PaginationTable = ({ itemCount, pageSize, currentPage }: Props) => {
 
   return (
     <div className='mt-4'>
-      <div className="flex overflow-x-auto sm:justify-center">
+      <div className="flex justify-center overflow-x-auto">
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}

@@ -12,14 +12,13 @@ const NavigationBar = ({ session }: any) => {
   return (
     <Navbar fluid>
       <Navbar.Brand>
-        <GoTasklist className='mr-2 text-3xl text-gray-600 dark:text-white' />
-        <span
-          className="self-center whitespace-nowrap text-xl font-semibold text-gray-600 dark:text-white"
-        >
+        <GoTasklist className="mr-2 text-3xl text-gray-600 dark:text-white" />
+        <span className="self-center whitespace-nowrap text-base font-semibold text-gray-600 dark:text-white sm:text-xl">
           Project Management
         </span>
       </Navbar.Brand>
-      <div className="flex space-x-3 md:order-2">
+
+      <div className="flex md:order-2">
         <DarkThemeToggle />
         {session ? (
           <Dropdown
@@ -37,18 +36,20 @@ const NavigationBar = ({ session }: any) => {
               <Link href="/api/auth/signout?callbackUrl=/">Sign out</Link>
             </Dropdown.Item>
           </Dropdown>
-
         ) : (
           <Button as={Link} href="/api/auth/signin">Sign In</Button>
         )}
-        < Navbar.Toggle />
+        <Navbar.Toggle />
       </div>
+
       {session ? (
         <Navbar.Collapse>
           <NavigationLinks role={session?.user.role} />
         </Navbar.Collapse>
       ) : null}
     </Navbar>
+
+
   )
 }
 

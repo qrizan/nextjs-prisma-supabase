@@ -14,11 +14,11 @@ const Dashboard = async () => {
 
   if (!session) {
     return (
-      <div className='flex h-screen items-center justify-center space-x-6'>
-        <div className='text-gray-600 dark:text-white'>
+      <div className="flex h-screen flex-col items-center justify-center space-y-4 md:flex-row md:space-x-6 md:space-y-0">
+        <div className="text-center text-gray-600 dark:text-white md:text-left">
           Project Management Application
         </div>
-        <Button as={Link} href="/api/auth/signin">
+        <Button as={Link} href="/api/auth/signin" className="flex items-center">
           Get Started
           <HiOutlineArrowRight className="ml-2 size-5" />
         </Button>
