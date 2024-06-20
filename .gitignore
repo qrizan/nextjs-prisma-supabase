@@ -38,3 +38,6 @@ next-env.d.ts
 
 # migrate
 /prisma/migrations
+
+# test
+/screenshots/test

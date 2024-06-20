@@ -2,13 +2,14 @@
 
 #### built with
 
-| Tools    |                            |
-| :------- | :------------------------- |
-| NextJS   | https://nextjs.org         |
-| Prisma   | https://www.prisma.io      |
-| Flowbite | https://flowbite-react.com |
-| Supabase | https://supabase.com       |
-| etc      |                            |
+| Tools     |                            |
+| :-------- | :------------------------- |
+| NextJS    | https://nextjs.org         |
+| Prisma    | https://www.prisma.io      |
+| Flowbite  | https://flowbite-react.com |
+| Supabase  | https://supabase.com       |
+| Puppeteer | https://pptr.dev           |
+| etc       |                            |
 
 #### users diagram
 
@@ -77,6 +78,22 @@ bunx prisma migrate dev --name init
 
 ```
 bun --watch run dev
+```
+
+#### UI testing and generate screenshots
+
+> scripts/test.ts
+
+```
+...
+const targetUrl = 'http://localhost:3000';
+const widthResolution = 1280;
+const heightResolution = 960;
+...
+```
+
+```
+bunx ts-node scripts/test.ts
 ```
 
 #### screenshots

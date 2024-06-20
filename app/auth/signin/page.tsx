@@ -27,13 +27,13 @@ export default function SignIn() {
           <div className="mb-2 block">
             <Label htmlFor="email1" value="Your email" />
           </div>
-          <TextInput name="email" type="email" value="johndoe@mail.com" placeholder="user@mail.com" required />
+          <TextInput name="email" type="email" placeholder="johndoe@mail.com" required />
         </div>
         <div>
           <div className="mb-2 block">
             <Label htmlFor="password1" value="Your password" />
           </div>
-          <TextInput name="password" type="password" value="password" required />
+          <TextInput name="password" type="password" placeholder="password" required />
         </div>
         <Button type="submit">Submit</Button>
       </form>
